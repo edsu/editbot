@@ -1,16 +1,17 @@
 editbot tweets edits to wikipedia articles linked from a particular page.
-editbot needs you to put a few things in a config file to start working. You 
-need to [register an app](https://app.twitter.com) at Twitter, and note down 
-your auth keys. You need to set these:
+editbot needs you to put a few things in a config file to start working. First,
+you need to [register an app](https://app.twitter.com) at Twitter, and note 
+down your auth keys. You also need to set these:
 
-* page: a URL of a page that contains links to Wikipedia articles you want to monitor
-* refresh: number of seconds to wait before looking for new pages to monitor 
+* `nick` the nickname to use when connecting to Wikipedia's IRC channels to monitor changes.
+* `page` the URL of a page that contains links to Wikipedia articles you want to monitor
+* `refresh` number of seconds to wait before looking for new pages to monitor 
 
 For example:
 
 ```json
 {
-  "nick": "editbot",
+  "nick": "artandfeminism",
   "consumer_key": "aabbcccckkckck",
   "consumer_secret": "slksjdslkjsdfk",
   "access_token": "slkdfjlskdjfs",
