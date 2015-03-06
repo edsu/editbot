@@ -1,7 +1,6 @@
 {
-  "name": "congresseditors",
-  "description": "Tweet edits to Wikipedia related to the US Congress",
-  "homepage": "http://github.com/edsu/congresseditors",
+  "name": "editbot",
+  "homepage": "http://github.com/edsu/editbot",
   "license": "CC0-1.0",
   "version": "0.0.1",
   "dependencies": {
