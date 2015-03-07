@@ -35,6 +35,7 @@
     EditBot.prototype.inspect = function(edit) {
       var status, twitter;
 
+      console.log("inspecting " + edit.page);
       if (!this.pages[edit.page]) {
 
       } else if (edit.robot) {
@@ -91,7 +92,7 @@
     EditBot.prototype._getPages = function(callback) {
       var pages;
 
-      pages = [];
+      pages = {};
       return this._getDom(this.config.page, function($) {
         var a, _i, _len, _ref;
 
@@ -99,7 +100,7 @@
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           a = _ref[_i];
           if ($(a).attr('href').match(/^\/wiki\/(.+)$/)) {
-            pages.push($(a).attr('title'));
+            pages[$(a).attr('title')] = true;
           }
         }
         return callback(pages);
@@ -145,7 +146,7 @@
       return c._update(function() {
         var page, _i, _len, _ref, _results;
 
-        _ref = Object.keys(c.pages);
+        _ref = c.pages;
         _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           page = _ref[_i];

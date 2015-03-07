@@ -20,6 +20,7 @@ class EditBot
       this.inspect(edit)
 
   inspect: (edit) ->
+    console.log "inspecting " + edit.page
     # is it a page we are watching?
     if not @pages[edit.page]
       return
@@ -61,11 +62,11 @@ class EditBot
         setTimeout doUpdate, refresh * 1000
 
   _getPages: (callback) ->
-    pages = []
+    pages = {}
     this._getDom @config.page, ($) ->
       for a in $('a[href]')
         if $(a).attr('href').match(/^\/wiki\/(.+)$/)
-          pages.push $(a).attr 'title'
+          pages[$(a).attr 'title'] = true
       callback pages
 
   _getDom: (url, callback) ->
@@ -90,7 +91,7 @@ main = ->
   # if list was selected just write out what pages we would monitor
   if argv.list
     c._update ->
-      for page in Object.keys c.pages
+      for page in c.pages
         console.log page
   # otherwise run!
   else
